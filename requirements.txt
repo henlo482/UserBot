@@ -32,7 +32,7 @@ html-telegraph-poster
 humanize
 jotquote
 justwatch
-kwo
+kwot
 lottie
 lxml
 lyricsgenius
