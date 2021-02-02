@@ -7,9 +7,9 @@ import time
 
 from telethon import Button, custom, events
 
-from . import CMD_LIST, catalive
+from . import CMD_LIST, pineapplealive
 
-CAT_IMG = Config.ALIVE_PIC or None
+PINEAPPLE_IMG = Config.ALIVE_PIC or None
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
 
 if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
@@ -21,30 +21,30 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         query = event.text
         hmm = re.compile("secret (.*) (.*)")
         match = re.findall(hmm, query)
-        if query.startswith("**Catuserbot") and event.query.user_id == bot.uid:
+        if query.startswith("**PineApple UserBot") and event.query.user_id == bot.uid:
             buttons = [
                 (
                     custom.Button.inline("Stats", data="stats"),
-                    Button.url("Repo", "https://github.com/sandy1709/catuserbot"),
+                    Button.url("Repo", "https://github.com/madboy482/UserBot"),
                 )
             ]
-            if CAT_IMG and CAT_IMG.endswith((".jpg", ".png")):
+            if PINEAPPLE_IMG and PINEAPPLE_IMG.endswith((".jpg", ".png")):
                 result = builder.photo(
-                    CAT_IMG,
-                    # title="Alive cat",
+                    PINEAPPLE_IMG,
+                    # title="Alive PineApple",
                     text=query,
                     buttons=buttons,
                 )
-            elif CAT_IMG:
+            elif PINEAPPLE_IMG:
                 result = builder.document(
-                    CAT_IMG,
-                    title="Alive cat",
+                    PINEAPPLE_IMG,
+                    title="Alive PineApple",
                     text=query,
                     buttons=buttons,
                 )
             else:
                 result = builder.article(
-                    title="Alive cat",
+                    title="Alive PineApple",
                     text=query,
                     buttons=buttons,
                 )
@@ -110,12 +110,12 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 try:
                     u = await event.client.get_entity(u)
                     if u.username:
-                        sandy = f"@{u.username}"
+                        madboy = f"@{u.username}"
                     else:
-                        sandy = f"[{u.first_name}](tg://user?id={u.id})"
+                        madboy = f"[{u.first_name}](tg://user?id={u.id})"
                 except ValueError:
                     # ValueError: Could not find the input entity
-                    sandy = f"[user](tg://user?id={u})"
+                    madboy = f"[user](tg://user?id={u})"
             except ValueError:
                 # if u is username
                 try:
@@ -123,9 +123,9 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 except ValueError:
                     return
                 if u.username:
-                    sandy = f"@{u.username}"
+                    madboy = f"@{u.username}"
                 else:
-                    sandy = f"[{u.first_name}](tg://user?id={u.id})"
+                    madboy = f"[{u.first_name}](tg://user?id={u.id})"
                 u = int(u.id)
             except:
                 return
@@ -133,11 +133,11 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             newsecret = {str(timestamp): {"userid": u, "text": txct}}
 
             buttons = [
-                custom.Button.inline("show message 🔐", data=f"secret_{timestamp}")
+                custom.Button.inline("Show Message 🔐", data=f"secret_{timestamp}")
             ]
             result = builder.article(
                 title="secret message",
-                text=f"🔒 A whisper message to {sandy}, Only he/she can open it.",
+                text=f"🔒 A whisper message is sent to {madboy}, Only he/she can open it.",
                 buttons=buttons,
             )
             await event.answer([result] if result else None)
@@ -159,7 +159,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine! Join @catuserbot17 help"
+            reply_pop_up_alert = "Please get your own PineApple UserBot, and don't use mine! Join @PineApple_UB help."
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(
@@ -176,7 +176,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
-            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine! Join @catuserbot17 help "
+            reply_pop_up_alert = "Please get your own PineApple UserBot, and don't use mine! Join @PineApple_UB help."
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"secret_(.*)")))
@@ -192,11 +192,11 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                     encrypted_tcxt = message["text"]
                     reply_pop_up_alert = encrypted_tcxt
                 else:
-                    reply_pop_up_alert = "why were you looking at this shit go away and do your own work, idiot"
+                    reply_pop_up_alert = "Why were you looking at this shit?? Go away and do your own work, Idiot.😒"
             except KeyError:
-                reply_pop_up_alert = "This message no longer exists in bot server"
+                reply_pop_up_alert = "This message no longer exists in bot server."
         else:
-            reply_pop_up_alert = "This message no longer exists "
+            reply_pop_up_alert = "This message no longer exists."
         await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(
@@ -219,7 +219,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             else:
                 reply_pop_up_alert = help_string
             reply_pop_up_alert += (
-                "Use .unload {} to remove this plugin ©catuserbot".format(plugin_name)
+                "Use .unload {} to remove this plugin ©PineApple".format(plugin_name)
             )
             try:
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
@@ -235,7 +235,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                         caption=plugin_name,
                     )
         else:
-            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine! Join @catuserbot17 help "
+            reply_pop_up_alert = "Please get your own PineApple UserBot, and don't use mine! Join @PineApple_UB help."
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
@@ -243,12 +243,12 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         if event.query.user_id == bot.uid:
             await event.edit("menu closed")
         else:
-            reply_pop_up_alert = "Please get your own catuserbot, and don't use mine! Join @catuserbot17 help "
+            reply_pop_up_alert = "Please get your own PineApple UserBot, and don't use mine! Join @PineApple_UB help."
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stats")))
     async def on_plug_in_callback_query_handler(event):
-        statstext = await catalive()
+        statstext = await pineapplealive()
         reply_pop_up_alert = statstext
         await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
