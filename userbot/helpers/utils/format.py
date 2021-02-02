@@ -137,4 +137,4 @@ def yaml_format(obj, indent=0, max_str_len=256, max_byte_len=64):
     else:
         return repr(obj)
 
-    return "".join(result)
+    return "".join(result
