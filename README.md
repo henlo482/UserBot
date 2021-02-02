@@ -6,7 +6,7 @@ Get APP ID and API HASH from [HERE](https://my.telegram.org) and BOT TOKEN from 
 
 [![Get string session](https://repl.it/badge/github/madboy482/madboy482)](https://generatestring.madboy482.repl.run/)
 
-[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fmadboy482%2FUserBot%2Ftree%2Fbugs&template=https%3A%2F%2https://repl.it/badge/github/madboy482/madboy482Fgithub.com%2Fmadboy482%2FUserBot)
+[![Deploy To Heroku](https://heroku.com/deploy?template=https://github.com/madboy482/UserBot.git)
 <p align="center">
   <a href="https://github.com/madboy482/UserBot/fork">
     <img src="https://img.shields.io/github/forks/madboy482/UserBot?label=Fork&style=social">
@@ -18,7 +18,7 @@ Get APP ID and API HASH from [HERE](https://my.telegram.org) and BOT TOKEN from 
 </p>
 
 
-[![UserBot Logo](https://telegra.ph/file/83066714176baef5bec68.png)](https://heroku.com/deploy?template=https://github.com/madboy482/UserBot)
+[![UserBot Logo](https://telegra.ph/file/83066714176baef5bec68.png)](https://heroku.com/deploy?template=https://github.com/madboy482/UserBot.git)
 
 
 ### Join [Here](https://telegram.me/PineApple_UB) for updates and tuts; and [Here](https://telegram.me/PineApple_UB_OnTopic) for discussion and bugs.
