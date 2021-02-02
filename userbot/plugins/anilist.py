@@ -2,7 +2,6 @@
 Anilist Search Plugin for Userbot
 Usage : .anilist animeName
 By :- @Zero_cool7870
-ported char, airing and manga by @sandy1709 and @mrconfused
 """
 
 import json
@@ -185,9 +184,9 @@ async def formatJSON(outData):
     msg += f"\n**Year** : {jsonData['startDate']['year']}"
     msg += f"\n**Score** : {jsonData['averageScore']}"
     msg += f"\n**Duration** : {jsonData['duration']} min\n\n"
-    # https://t.me/catuserbot_support/19496
-    cat = f"{jsonData['description']}"
-    msg += " __" + re.sub("<br>", "\n", cat) + "__"
+    # https://t.me/PineApple_UB_OnTopic/6
+    pineapple = f"{jsonData['description']}"
+    msg += " __" + re.sub("<br>", "\n", pineapple) + "__"
     return msg
 
 
@@ -224,7 +223,7 @@ async def anilist(event):
         else:
             await edit_or_reply(event, msg)
     else:
-        await edit_or_reply(event, "Sorry, No such results")
+        await edit_or_reply(event, "Sorry, No such results found.")
 
 
 @bot.on(admin_cmd(pattern="airing (.*)"))
