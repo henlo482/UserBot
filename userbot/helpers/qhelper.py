@@ -445,4 +445,4 @@ async def replied_user(draw, tot, text, maxlength, title):
             space += textfallback.getsize(letter)[0]
         else:
             draw.text((180 + space, 132), letter, font=textfont, fill="white")
-            space += textfont.getsize(letter)[0
+            space += textfont.getsize(letter)[0]
