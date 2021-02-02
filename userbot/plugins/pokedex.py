@@ -15,11 +15,11 @@ import requests
 
 from userbot import CMD_HELP
 from userbot.utils import admin_cmd
-from userbot.utils import edit_or_reply, admin_cmd, sudo_cmd
+from userbot.utils import edit_or_reply, sudo_cmd
 
 
-@friday.on(friday_on_cmd(pattern="pokedex ?(.*)"))
-@friday.on(sudo_cmd(pattern="pokedex ?(.*)", allow_sudo=True))
+@bot.on(admin_cmd(pattern="pokedex ?(.*)"))
+@bot.on(sudo_cmd(pattern="pokedex ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
