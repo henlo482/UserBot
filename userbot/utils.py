@@ -34,7 +34,7 @@ def load_module(shortname):
         import userbot.utils
 
         from .helpers.tools import media_type
-        from .helpers.utils import _cattools, _catutils, _format, install_pip, reply_id
+        from .helpers.utils import _pineappletools, _pineappleutils, _format, install_pip, reply_id
         from .managers import edit_delete, edit_or_reply
 
         path = Path(f"userbot/plugins/{shortname}.py")
@@ -49,8 +49,8 @@ def load_module(shortname):
         mod.CMD_HELP = CMD_HELP
         mod.reply_id = reply_id
         mod.admin_cmd = admin_cmd
-        mod._catutils = _catutils
-        mod._cattools = _cattools
+        mod._pineappleutils = _pineappleutils
+        mod._pineappletools = _pineappletools
         mod.media_type = media_type
         mod.edit_delete = edit_delete
         mod.install_pip = install_pip
@@ -107,12 +107,12 @@ def admin_cmd(pattern=None, command=None, **args):
                 CMD_LIST.update({file_test: [cmd]})
         else:
             if len(Config.COMMAND_HAND_LER) == 2:
-                catreg = "^" + Config.COMMAND_HAND_LER
+                pineapplereg = "^" + Config.COMMAND_HAND_LER
                 reg = Config.COMMAND_HAND_LER[1]
             elif len(Config.COMMAND_HAND_LER) == 1:
-                catreg = "^\\" + Config.COMMAND_HAND_LER
+                pineapplereg = "^\\" + Config.COMMAND_HAND_LER
                 reg = Config.COMMAND_HAND_LER
-            args["pattern"] = re.compile(catreg + pattern)
+            args["pattern"] = re.compile(pineapplereg + pattern)
             if command is not None:
                 cmd = reg + command
             else:
@@ -172,12 +172,12 @@ def sudo_cmd(pattern=None, command=None, **args):
                 SUDO_LIST.update({file_test: [cmd]})
         else:
             if len(Config.SUDO_COMMAND_HAND_LER) == 2:
-                catreg = "^" + Config.SUDO_COMMAND_HAND_LER
+                pineapplereg = "^" + Config.SUDO_COMMAND_HAND_LER
                 reg = Config.SUDO_COMMAND_HAND_LER[1]
             elif len(Config.SUDO_COMMAND_HAND_LER) == 1:
-                catreg = "^\\" + Config.SUDO_COMMAND_HAND_LER
+                pineapplereg = "^\\" + Config.SUDO_COMMAND_HAND_LER
                 reg = Config.COMMAND_HAND_LER
-            args["pattern"] = re.compile(catreg + pattern)
+            args["pattern"] = re.compile(pineapplereg + pattern)
             if command is not None:
                 cmd = reg + command
             else:
@@ -249,11 +249,11 @@ def errors_handler(func):
             from .helpers.utils import _format
 
             pastelink = _format.paste_text(ftext)
-            text = "**CatUserbot Error report**\n\n"
-            link = "[here](https://t.me/catuserbot_support)"
-            text += "If you wanna you can report it"
-            text += f"- just forward this message {link}.\n"
-            text += "Nothing is logged except the fact of error and date\n\n"
+            text = "**PineApple UserBot Error report**\n\n"
+            link = "[Here](https://telegram.me/PineApple_UB_OnTopic)"
+            text += "If you wanna you can report it."
+            text += f"- Just forward this message {link}.\n"
+            text += "Nothing is logged except the fact of error and date.\n\n"
             text += f"**Error report : ** [{new['error']}]({pastelink})"
             await errors.client.send_message(
                 Config.PRIVATE_GROUP_BOT_API_ID, text, link_preview=False
