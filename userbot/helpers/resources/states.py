@@ -1,7 +1,7 @@
 states = [
     "Andaman and Nicobar Islands",
     "Andhra Pradesh",
-    "Arunachal Pradesh",
+    "Arunachal Prades",
     "Assam",
     "Bihar",
     "Chandigarh",
