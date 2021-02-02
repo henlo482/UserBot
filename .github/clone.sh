@@ -1,17 +1,7 @@
 #!/bin/bash
 
-# Copyright (C) 2020 by sandy1709
+# Copyright (C) 2020 by madboy482
 
-echo "
-                    :'######:::::'###::::'########::::
-                    '##... ##:::'## ##:::... ##..:::::
-                     ##:::..:::'##:. ##::::: ##:::::::
-                     ##:::::::'##:::. ##:::: ##:::::::
-                     ##::::::: #########:::: ##:::::::
-                     ##::: ##: ##.... ##:::: ##:::::::
-                    . ######:: ##:::: ##:::: ##:::::::
-                    :......:::..:::::..:::::..::::::::
-"
 
 echo "
 '##::::'##::'######::'########:'########::'########:::'#######::'########:
@@ -32,15 +22,15 @@ else
     rm -rf userbot
     rm -rf .github
     rm -rf sample_config.py
-    git clone https://github.com/sandy1709/catuserbot cat_ub
-    mv cat_ub/userbot .
-    mv cat_ub/.github . 
-    mv cat_ub/.git .
-    mv cat_ub/sample_config.py .
+    git clone https://github.com/madboy482/UserBot pineapple_ub
+    mv pineapple_ub/userbot .
+    mv pineapple_ub/.github . 
+    mv pineapple_ub/.git .
+    mv pineapple_ub/sample_config.py .
     python ./.github/update.py
     rm -rf requirements.txt
-    mv cat_ub/requirements.txt .
-    rm -rf cat_ub
+    mv pineapple_ub/requirements.txt .
+    rm -rf pineapple_ub
 fi
 
 FILE=/app/bin/
