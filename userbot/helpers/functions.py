@@ -40,27 +40,27 @@ async def get_readable_time(seconds: int) -> str:
 # gban
 
 
-async def admin_groups(cat):
-    catgroups = []
-    async for dialog in cat.client.iter_dialogs():
+async def admin_groups(pineapple):
+    pineapplegroups = []
+    async for dialog in pineapple.client.iter_dialogs():
         entity = dialog.entity
         if (
             isinstance(entity, Channel)
             and entity.megagroup
             and (entity.creator or entity.admin_rights)
         ):
-            catgroups.append(entity.id)
-    return catgroups
+            pineapplegroups.append(entity.id)
+    return pineapplegroups
 
 
 # for getmusic
 
 
-async def yt_search(cat):
+async def yt_search(pineapple):
     try:
-        cat = urllib.parse.quote(cat)
+        pineapple = urllib.parse.quote(pineapple)
         html = urllib.request.urlopen(
-            "https://www.youtube.com/results?search_query=" + cat
+            "https://www.youtube.com/results?search_query=" + pineapple
         )
         user_data = re.findall(r"watch\?v=(\S{11})", html.read().decode())
         video_link = []
@@ -117,12 +117,12 @@ async def ytsearch(query, limit):
 # https://github.com/pokurt/LyndaRobot/blob/7556ca0efafd357008131fa88401a8bb8057006f/lynda/modules/helper_funcs/string_handling.py#L238
 
 
-async def extract_time(cat, time_val):
+async def extract_time(pineapple, time_val):
     if any(time_val.endswith(unit) for unit in ("m", "h", "d", "w")):
         unit = time_val[-1]
         time_num = time_val[:-1]  # type: str
         if not time_num.isdigit():
-            cat.edit("Invalid time amount specified.")
+            pineapple.edit("Invalid time amount specified.")
             return ""
         if unit == "m":
             bantime = int(time.time() + int(time_num) * 60)
@@ -136,7 +136,7 @@ async def extract_time(cat, time_val):
             # how even...?
             return ""
         return bantime
-    await cat.edit(
+    await pineapple.edit(
         f"Invalid time type specified. Expected m , h , d or w but got: {time_val[-1]}"
     )
     return ""
@@ -233,12 +233,12 @@ async def trumptweet(text):
     r = requests.get(
         f"https://nekobot.xyz/api/imagegen?type=trumptweet&text={text}"
     ).json()
-    sandy = r.get("message")
-    caturl = url(sandy)
-    if not caturl:
+    madboy = r.get("message")
+    pineappleurl = url(madboy)
+    if not pineappleurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(sandy).content)
+        f.write(requests.get(madboy).content)
     img = Image.open("temp.png").convert("RGB")
     img.save("temp.webp", "webp")
     return "temp.webp"
@@ -248,12 +248,12 @@ async def changemymind(text):
     r = requests.get(
         f"https://nekobot.xyz/api/imagegen?type=changemymind&text={text}"
     ).json()
-    sandy = r.get("message")
-    caturl = url(sandy)
-    if not caturl:
+    madboy = r.get("message")
+    pineappleurl = url(madboy)
+    if not pineappleurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(sandy).content)
+        f.write(requests.get(madboy).content)
     img = Image.open("temp.png").convert("RGB")
     img.save("temp.jpg", "jpeg")
     return "temp.jpg"
@@ -263,12 +263,12 @@ async def kannagen(text):
     r = requests.get(
         f"https://nekobot.xyz/api/imagegen?type=kannagen&text={text}"
     ).json()
-    sandy = r.get("message")
-    caturl = url(sandy)
-    if not caturl:
+    madboy = r.get("message")
+    pineappleurl = url(madboy)
+    if not pineappleurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(sandy).content)
+        f.write(requests.get(madboy).content)
     img = Image.open("temp.png").convert("RGB")
     img.save("temp.webp", "webp")
     return "temp.webp"
@@ -278,12 +278,12 @@ async def moditweet(text):
     r = requests.get(
         f"https://nekobot.xyz/api/imagegen?type=tweet&text={text}&username=narendramodi"
     ).json()
-    sandy = r.get("message")
-    caturl = url(sandy)
-    if not caturl:
+    madboy = r.get("message")
+    pineappleurl = url(madboy)
+    if not pineappleurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(sandy).content)
+        f.write(requests.get(madboy).content)
     img = Image.open("temp.png").convert("RGB")
     img.save("temp.webp", "webp")
     return "temp.webp"
@@ -293,12 +293,12 @@ async def tweets(text1, text2):
     r = requests.get(
         f"https://nekobot.xyz/api/imagegen?type=tweet&text={text1}&username={text2}"
     ).json()
-    sandy = r.get("message")
-    caturl = url(sandy)
-    if not caturl:
+    madboy = r.get("message")
+    pineappleurl = url(madboy)
+    if not pineappleurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(sandy).content)
+        f.write(requests.get(madboy).content)
     img = Image.open("temp.png").convert("RGB")
     img.save("temp.webp", "webp")
     return "temp.webp"
@@ -306,12 +306,12 @@ async def tweets(text1, text2):
 
 async def iphonex(text):
     r = requests.get(f"https://nekobot.xyz/api/imagegen?type=iphonex&url={text}").json()
-    sandy = r.get("message")
-    caturl = url(sandy)
-    if not caturl:
+    madboy = r.get("message")
+    pineappleurl = url(madboy)
+    if not pineappleurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(sandy).content)
+        f.write(requests.get(madboy).content)
     img = Image.open("temp.png").convert("RGB")
     img.save("temp.jpg", "jpeg")
     return "temp.jpg"
@@ -321,12 +321,12 @@ async def baguette(text):
     r = requests.get(
         f"https://nekobot.xyz/api/imagegen?type=baguette&url={text}"
     ).json()
-    sandy = r.get("message")
-    caturl = url(sandy)
-    if not caturl:
+    madboy = r.get("message")
+    pineappleurl = url(madboy)
+    if not pineappleurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(sandy).content)
+        f.write(requests.get(madboy).content)
     img = Image.open("temp.png").convert("RGB")
     img.save("temp.jpg", "jpeg")
     return "temp.jpg"
@@ -334,12 +334,12 @@ async def baguette(text):
 
 async def threats(text):
     r = requests.get(f"https://nekobot.xyz/api/imagegen?type=threats&url={text}").json()
-    sandy = r.get("message")
-    caturl = url(sandy)
-    if not caturl:
+    madboy = r.get("message")
+    pineappleurl = url(madboy)
+    if not pineappleurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(sandy).content)
+        f.write(requests.get(madboy).content)
     img = Image.open("temp.png")
     if img.mode != "RGB":
         img = img.convert("RGB")
@@ -349,12 +349,12 @@ async def threats(text):
 
 async def lolice(text):
     r = requests.get(f"https://nekobot.xyz/api/imagegen?type=lolice&url={text}").json()
-    sandy = r.get("message")
-    caturl = url(sandy)
-    if not caturl:
+    madboy = r.get("message")
+    pineappleurl = url(madboy)
+    if not pineappleurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(sandy).content)
+        f.write(requests.get(madboy).content)
     img = Image.open("temp.png")
     if img.mode != "RGB":
         img = img.convert("RGB")
@@ -364,12 +364,12 @@ async def lolice(text):
 
 async def trash(text):
     r = requests.get(f"https://nekobot.xyz/api/imagegen?type=trash&url={text}").json()
-    sandy = r.get("message")
-    caturl = url(sandy)
-    if not caturl:
+    madboy = r.get("message")
+    pineappleurl = url(madboy)
+    if not pineappleurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(sandy).content)
+        f.write(requests.get(madboy).content)
     img = Image.open("temp.png")
     if img.mode != "RGB":
         img = img.convert("RGB")
@@ -379,12 +379,12 @@ async def trash(text):
 
 async def awooify(text):
     r = requests.get(f"https://nekobot.xyz/api/imagegen?type=awooify&url={text}").json()
-    sandy = r.get("message")
-    caturl = url(sandy)
-    if not caturl:
+    madboy = r.get("message")
+    pineappleurl = url(madboy)
+    if not pineappleurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(sandy).content)
+        f.write(requests.get(madboy).content)
     img = Image.open("temp.png")
     if img.mode != "RGB":
         img = img.convert("RGB")
@@ -396,12 +396,12 @@ async def trap(text1, text2, text3):
     r = requests.get(
         f"https://nekobot.xyz/api/imagegen?type=trap&name={text1}&author={text2}&image={text3}"
     ).json()
-    sandy = r.get("message")
-    caturl = url(sandy)
-    if not caturl:
+    madboy = r.get("message")
+    pineappleurl = url(madboy)
+    if not pineappleurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(sandy).content)
+        f.write(requests.get(madboy).content)
     img = Image.open("temp.png")
     if img.mode != "RGB":
         img = img.convert("RGB")
@@ -413,12 +413,12 @@ async def phcomment(text1, text2, text3):
     r = requests.get(
         f"https://nekobot.xyz/api/imagegen?type=phcomment&image={text1}&text={text2}&username={text3}"
     ).json()
-    sandy = r.get("message")
-    caturl = url(sandy)
-    if not caturl:
+    madboy = r.get("message")
+    pineappleurl = url(madboy)
+    if not pineappleurl:
         return "check syntax once more"
     with open("temp.png", "wb") as f:
-        f.write(requests.get(sandy).content)
+        f.write(requests.get(madboy).content)
     img = Image.open("temp.png")
     if img.mode != "RGB":
         img = img.convert("RGB")
@@ -509,7 +509,7 @@ async def waifutxt(text, chat_id, reply_to_id, bot, borg):
         63,
     ]
     sticcers = await bot.inline_query("stickerizerbot", f"#{choice(animus)}{text}")
-    cat = await sticcers[0].click("me", hide_via=True)
-    if cat:
-        await bot.send_file(int(chat_id), cat, reply_to=reply_to_id)
-        await cat.delete()
+    pineapple = await sticcers[0].click("me", hide_via=True)
+    if pineapple:
+        await bot.send_file(int(chat_id), pineapple, reply_to=reply_to_id)
+        await pineapple.delete()
