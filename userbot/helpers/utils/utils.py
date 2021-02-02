@@ -44,4 +44,4 @@ async def unsavegif(event, sandy):
             )
         )
     except:
-        pass
+        pas
