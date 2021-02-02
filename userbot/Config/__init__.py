@@ -1,1 +1,1 @@
-from .catub_config import Config
+from .pineappleub_config import Config
