@@ -8,7 +8,7 @@ import requests
 
 from . import ALIVE_NAME
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "cat"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "PineApple"
 
 
 @bot.on(admin_cmd(pattern="app (.*)"))
@@ -76,7 +76,7 @@ async def apk(event):
         app_details += f"\n\n===> {DEFAULTUSER} <==="
         await event.edit(app_details, link_preview=True, parse_mode="HTML")
     except IndexError:
-        await event.edit("No result found in search. Please enter **Valid app name**")
+        await event.edit("No result found in search. Please enter **Valid app name!!**")
     except Exception as err:
         await event.edit("Exception Occured:- " + str(err))
 
@@ -147,7 +147,7 @@ async def apkr(event):
         app_details += "\n\n===> @Xpl0iter <==="
         await event.edit(app_details, link_preview=True, parse_mode="HTML")
     except IndexError:
-        await event.edit("No result found in search. Please enter **Valid app name**")
+        await event.edit("No result found in search. Please enter **Valid app name!!**")
     except Exception as err:
         await event.edit("Exception Occured:- " + str(err))
 
