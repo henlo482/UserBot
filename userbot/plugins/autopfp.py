@@ -95,6 +95,6 @@ CMD_HELP.update(
   •  `.batmanpfp`
   •  `.thorpfp`
 
-**Function : **__Changes your profile pic every 2 minutes with the command you used(mean the batman of hor)__"""
+**Function : **__Changes your profile pic every 2 minutes with the command you used(mean the batman of thor)__"""
     }
 )
