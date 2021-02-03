@@ -2,7 +2,7 @@
 
 from . import ALIVE_NAME
 
-DEF = str(ALIVE_NAME) if ALIVE_NAME else "cat"
+DEF = str(ALIVE_NAME) if ALIVE_NAME else "PineApple"
 
 
 @bot.on(admin_cmd(pattern="ded (.*)"))
