@@ -13,7 +13,7 @@ from telethon.sessions import StringSession
 from .Config import Config
 
 StartTime = time.time()
-Cat version = "1.0"
+Catversion = "1.920"
 
 if Config.STRING_SESSION:
     session_name = str(Config.STRING_SESSION)
