@@ -1,6 +1,6 @@
 # Made By @Nihinivi Keep Credits If You Are Goanna Kang This Lol
 # And Thanks To The Creator Of Autopic This Script Was Made from Snippets From That Script
-# Usage .gamerpfp  Im Not Responsible For Any Ban caused By This
+# Usage .gamerpfp  I'm Not Responsible For Any Ban caused By This.
 import asyncio
 import os
 import random
@@ -95,6 +95,6 @@ CMD_HELP.update(
   •  `.batmanpfp`
   •  `.thorpfp`
 
-**Function : **__Changes your profile pic every 2 minutes with the command you used(mean the batman of thor)__"""
+**Function : **__Changes your profile pic every 2 minutes with the command you used(mean the batman of hor)__"""
     }
 )
