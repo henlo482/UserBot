@@ -36,23 +36,23 @@ async def _(event):
                 reply_message,
                 Config.TMP_DOWNLOAD_DIRECTORY,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                    progress(d, t, mone, c_time, "trying to download")
+                    progress(d, t, mone, c_time, "Trying to download...")
                 ),
             )
             directory_name = downloaded_file_name
-            await mone.edit("Finish downloading to my local")
+            await mone.edit("Finished downloading to my local.")
             zipfile.ZipFile(directory_name + ".zip", "w", zipfile.ZIP_DEFLATED).write(
                 directory_name
             )
             os.remove(directory_name)
-            cat = directory_name + ".zip"
-            await mone.edit(f"compressed successfully into `{cat}`")
+            PineApple = directory_name + ".zip"
+            await mone.edit(f"Compressed successfully into `{PineApple}.`")
         except Exception as e:  # pylint:disable=C0103,W0703
             await mone.edit(str(e))
     elif input_str:
         if not os.path.exists(input_str):
             await mone.edit(
-                f"There is no such directory or file with the name `{input_str}` check again"
+                f"There is no such directory or file with the name `{input_str}`. Check Again!"
             )
             return
         filePaths = zipdir(input_str)
@@ -76,7 +76,7 @@ async def _(event):
             start = datetime.now()
             if not zipfile.is_zipfile(path):
                 await mone.edit(
-                    f"`the given file {str(path)} is not zip file to unzip`"
+                    f"`The given file, {str(path)} is not a zip file to be unzipped.`"
                 )
             destination = os.path.join(
                 Config.TMP_DOWNLOAD_DIRECTORY,
@@ -87,7 +87,7 @@ async def _(event):
             end = datetime.now()
             ms = (end - start).seconds
             await mone.edit(
-                f"unzipped and stored to `{destination}` \n**Time Taken :** `{ms} seconds`"
+                f"Unzipped successfully and stored to `{destination}`. \n**Time Taken :** `{ms} seconds`"
             )
         else:
             await mone.edit(f"I can't find that path `{input_str}`")
@@ -103,15 +103,15 @@ async def _(event):
                     reply_message,
                     Config.TMP_DOWNLOAD_DIRECTORY,
                     progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                        progress(d, t, mone, c_time, "trying to download")
+                        progress(d, t, mone, c_time, "Trying to download...")
                     ),
                 )
             except Exception as e:
                 await mone.edit(str(e))
-            await mone.edit("Unzipping now")
+            await mone.edit("Unzipping now...")
             if not zipfile.is_zipfile(path):
                 await mone.edit(
-                    f"`the given file {str(path)} is not zip file to unzip`"
+                    f"`The given file {str(path)} is not a zip file to be unzipped.`"
                 )
             destination = os.path.join(
                 Config.TMP_DOWNLOAD_DIRECTORY,
@@ -122,7 +122,7 @@ async def _(event):
             end = datetime.now()
             ms = (end - start).seconds
             await mone.edit(
-                f"unzipped and stored to `{destination}` \n**Time Taken :** `{ms} seconds`"
+                f"Unzipped successfully and stored to `{destination}`. \n**Time Taken :** `{ms} seconds`"
             )
             os.remove(path)
 
@@ -153,18 +153,18 @@ async def _(event):
                 reply_message,
                 Config.TMP_DOWNLOAD_DIRECTORY,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                    progress(d, t, mone, c_time, "trying to download")
+                    progress(d, t, mone, c_time, "Trying to download...")
                 ),
             )
             directory_name = downloaded_file_name
-            await mone.edit("creating rar archive, please wait..")
+            await mone.edit("Creating rar archive, Please wait..")
             patoolib.create_archive(
                 directory_name + ".rar", (directory_name, Config.TMP_DOWNLOAD_DIRECTORY)
             )
             await event.client.send_file(
                 event.chat_id,
                 directory_name + ".rar",
-                caption="rarred By cat",
+                caption="Rarred By PineApple.",
                 force_document=True,
                 allow_cache=False,
                 reply_to=event.message.id,
@@ -174,7 +174,7 @@ async def _(event):
                 os.remove(directory_name)
             except BaseException:
                 pass
-            await mone.edit("Task Completed")
+            await mone.edit("Task Completed.")
             await asyncio.sleep(3)
             await mone.delete()
         except Exception as e:
@@ -201,11 +201,11 @@ async def _(event):
                 reply_message,
                 Config.TMP_DOWNLOAD_DIRECTORY,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                    progress(d, t, mone, c_time, "trying to download")
+                    progress(d, t, mone, c_time, "Trying to download...")
                 ),
             )
             directory_name = downloaded_file_name
-            await mone.edit("Finish downloading to my local")
+            await mone.edit("Finished downloading to my local.")
             to_upload_file = directory_name
             output = await create_archive(to_upload_file)
             is_zip = False
@@ -216,7 +216,7 @@ async def _(event):
             await event.client.send_file(
                 event.chat_id,
                 output,
-                caption="TAR By cat",
+                caption="TAR By PineApple.",
                 force_document=True,
                 allow_cache=False,
                 reply_to=event.message.id,
@@ -226,7 +226,7 @@ async def _(event):
                 os.remove(output)
             except BaseException:
                 pass
-            await mone.edit("Task Completed")
+            await mone.edit("Task Completed.")
             await asyncio.sleep(3)
             await mone.delete()
         except Exception as e:
@@ -270,7 +270,7 @@ async def create_archive(input_directory):
 async def _(event):
     if event.fwd_from:
         return
-    mone = await edit_or_reply(event, "Processing ...")
+    mone = await edit_or_reply(event, "Processing...")
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     if event.reply_to_msg_id:
@@ -282,7 +282,7 @@ async def _(event):
                 reply_message,
                 Config.TMP_DOWNLOAD_DIRECTORY,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                    progress(d, t, mone, c_time, "trying to download")
+                    progress(d, t, mone, c_time, "Trying to download...")
                 ),
             )
         except Exception as e:
@@ -295,7 +295,7 @@ async def _(event):
             )
         patoolib.extract_archive(downloaded_file_name, outdir=extracted)
         filename = sorted(get_lst_of_files(extracted, []))
-        await mone.edit("Unraring now")
+        await mone.edit("Unraring now..")
         for single_file in filename:
             if os.path.exists(single_file):
                 # https://stackoverflow.com/a/678242/4723940
@@ -336,7 +336,7 @@ async def _(event):
                         reply_to=event.message.id,
                         attributes=document_attributes,
                         progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                            progress(d, t, event, c_time, "trying to upload")
+                            progress(d, t, event, c_time, "Trying to upload...")
                         ),
                     )
                 except Exception as e:
@@ -374,7 +374,7 @@ async def _(event):
                 reply_message,
                 Config.TMP_DOWNLOAD_DIRECTORY,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                    progress(d, t, mone, c_time, "trying to download")
+                    progress(d, t, mone, c_time, "Trying to download...")
                 ),
             )
         except Exception as e:  # pylint:disable=C0103,W0703
@@ -383,11 +383,11 @@ async def _(event):
             end = datetime.now()
             ms = (end - start).seconds
             await mone.edit(
-                "Stored the tar to `{}` in {} seconds.".format(downloaded_file_name, ms)
+                "Stored the TAR to `{}` in {} seconds.".format(downloaded_file_name, ms)
             )
         with tarfile.TarFile.open(downloaded_file_name, "r") as tar_file:
             tar_file.extractall()
-        await mone.edit(f"unzipped and stored to `{downloaded_file_name[:-4]}`")
+        await mone.edit(f"Unzipped successfully and stored to `{downloaded_file_name[:-4]}`")
         os.remove(downloaded_file_name)
 
 
